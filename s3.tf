@@ -12,19 +12,6 @@ data "aws_iam_policy_document" "data_bucket_policy" {
   }
 }
 
-# module "s3_bucket" {
-#   source = "terraform-aws-modules/s3-bucket/aws"
-
-#   bucket = "employee-photo-bucket-ocar-10"
-#   acl    = "private"
-
-#   versioning = {
-#     enabled = true
-#   }
-
-#   policy = data.aws_iam_policy_document.data_bucket_policy.json
-
-# }
 
 resource "aws_s3_bucket" "s3" {
   bucket = "employee-photo-bucket-ocar-10"
