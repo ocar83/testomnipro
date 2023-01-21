@@ -10,8 +10,7 @@ terraform {
 
 provider "aws" {
 
-  region                   = "us-east-1"
-  shared_config_files      = ["/Users/ocar/.aws/config"]
-  shared_credentials_files = ["/Users/ocar/.aws/credentials"]
-  profile                  = "omnipro"
+  region                   = "eu-west-1"
+  shared_config_files      = ["/home/ocar/.aws/config"]
+  shared_credentials_files = ["/home/ocar/.aws/credentials"]
 }
