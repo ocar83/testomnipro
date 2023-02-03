@@ -11,6 +11,6 @@ terraform {
 provider "aws" {
 
   region                   = "eu-west-1"
-  shared_config_files      = ["/home/ocar/.aws/config"]
-  shared_credentials_files = ["/home/ocar/.aws/credentials"]
+  shared_config_files      = ["/home/oscar/.aws/config"]
+  shared_credentials_files = ["/home/oscar/.aws/credentials"]
 }

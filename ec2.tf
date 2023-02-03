@@ -1,7 +1,8 @@
 module "ec2" {
   source = "terraform-aws-modules/ec2-instance/aws"
+  count = 3
 
-  name = "employee-directory-app"
+  name = "instance ${count.index}"
 
   ami                    = "${data.aws_ami.image.id}"
   instance_type          = "t2.micro"
@@ -13,7 +14,7 @@ module "ec2" {
 
 resource "aws_key_pair" "key_pair" {
   key_name   = "app-key-pair"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/ZsL7RYW5y1Axmc04N2OV9Q6JwIcZGQhy6ehNKyqNwe2wJJ/s7qPK2skHc6tjHbWvhjEcOWR5+3pmkJssg/vOSvjgG5eW36tB+yLLlSgDl7lW220ywMwpqAWUMTeCapcfYhD+mDDlwiwTJREj7rlmvqDkODF1LJAkuQ96kqZbkk4i2v8VFvIKc3J08JpVAOEMjVC9B89zKslmT5EAy9Jdpiz9WMkW+TcsOzbcrjnlaTbx4yd03ZJ0a2L7LRJZNCt+TmkICacChRSh6gXmwnxLRUVVgntK+HlrPSgxmnqAu5XhTL5Q1u2GMy0EcY3nwbtIb9vd74PiaBQPpc+TS3IpKKt2gZfy56ha79gxEhp9OPe9c8p7M9FceGybbhWHcmshGtuq7otflMAVe3sWotXlbhpPPapKRU/tfShliqQNHQtShus9raC+41saSorRfutMR0chs6n0GH87L/wXYQpIfAPfIsvs8tDPsCYd79rGZDWfcWiMb+CgpEzmAYPA1ac= ocar@ocarpc"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKQZfJW7tmaSItBhZ3QBD3TLUj8oBwSGTFTvVTdXQTGxnSP/Q3XPOML4sWSV3o9PgsXLkS5jM4UN04T3kTxI0eTbAtAZJb1ADxlN+VRUtaYH/gfgsUpUBE+kMPt0MhLosROFWsh6A4nkhjUaQ0QnLB7Vo+o6FRsDsc62/mIY+Q11ITtYSHDYJ0RybV+4gyD1euuDtqnq+3Z4a5a7QoKxFe9QlI8/TYXhmVGzgkw6NRpy8Tw/xOZHEEfAv9B8+E/JAPOljHkhyPoocg1ujSlrWYZnIasnpaU/yltE1W/UkLDGdkJ8gLCSATWw3UPi0bySoeIWdepA2gSarIl325fXCr oscar@admin"
 }
 
 data "aws_ami" "image" {
